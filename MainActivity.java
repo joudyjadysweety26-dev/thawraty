@@ -1,4 +1,4 @@
-package org.thawraty.app;
+package  org.thawraty.app;
 
 import android.app.Activity;
 import android.os.Bundle;
