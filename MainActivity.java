@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
-        showHome();
+         showHome();
     }
 
     private void setup(String title, String subtitle) {
