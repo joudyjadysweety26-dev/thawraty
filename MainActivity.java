@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
     private String selectedCountry = "مصر";
     private String selectedVote = "";
     private EditText questionInput;
-    private  LinearLayout root;
+    private   LinearLayout root;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
