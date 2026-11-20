@@ -1,183 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="THAWARTY - منصة للمشاركة المجتمعية والعمل التطوعي">
 <title>THAWARTY | ثورتي</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Tahoma, Arial, sans-serif;
-    background: #f2f5f8;
-    color: #26364a;
-    text-align: center;
-    line-height: 1.8;
-}
-
-header {
-    background: #122742;
-    color: white;
-    padding: 35px 15px;
-}
-
-header h1 {
-    font-size: 38px;
-    margin: 0;
-    letter-spacing: 2px;
-}
-
-header h2 {
-    color: #00a6a0;
-    margin: 5px 0;
-}
-
-header p {
-    margin: 10px 0 0;
-}
-
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px 20px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px #00000012;
-}
-
-h2 {
-    color: #122742;
-}
-
-p {
-    font-size: 17px;
-}
-
-.join-button {
-    display: inline-block;
-    background: #00a6a0;
-    color: white;
-    text-decoration: none;
-    padding: 14px 35px;
-    border-radius: 8px;
-    font-size: 19px;
-    font-weight: bold;
-    margin: 15px;
-}
-
-.join-button:hover {
-    background: #087e79;
-}
-
-.form-container {
-    width: 100%;
-    margin: 20px auto;
-}
-
-iframe {
-    width: 100%;
-    height: 1100px;
-    border: none;
-}
-
-footer {
-    background: #122742;
-    color: white;
-    padding: 22px;
-    margin-top: 35px;
-}
-
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 30px;
-    }
-
-    section {
-        margin: 15px 10px;
-        padding: 20px 12px;
-    }
-
-    iframe {
-        height: 1200px;
-    }
-}
+:root{--navy:#122742;--teal:#00a6a0;--ink:#26364a;--paper:#f2f5f8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.8}
+header{background:linear-gradient(135deg,#122742,#1b3d5d);color:#fff;padding:34px 16px 28px;text-align:center}
+.brand{font-size:clamp(30px,7vw,46px);font-weight:800;letter-spacing:2px;margin:0}
+.brand-ar{font-size:25px;color:#55d5cf;margin:0}
+.tagline{margin:8px 0 0;font-size:17px}
+.langbar{display:flex;justify-content:center;gap:8px;margin-top:18px}
+.langbar button{border:1px solid #ffffff80;background:transparent;color:white;border-radius:24px;padding:8px 18px;font-weight:bold;cursor:pointer}
+.langbar button.active{background:var(--teal);border-color:var(--teal)}
+main{padding:12px}
+section{max-width:920px;margin:24px auto;padding:28px 22px;background:white;border-radius:15px;box-shadow:0 3px 14px #00000010}
+h2{color:var(--navy);margin-top:0}
+p{font-size:17px}
+.hero{text-align:center}
+.pill{display:inline-block;background:#e5f7f6;color:#087e79;padding:5px 13px;border-radius:30px;font-weight:bold;font-size:14px}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+.btn{display:inline-block;background:var(--teal);color:white;text-decoration:none;padding:12px 25px;border-radius:9px;font-size:17px;font-weight:bold}
+.btn:hover{background:#087e79}
+.btn.secondary{background:var(--navy)}
+.form-wrap{width:100%;margin:18px auto 0;overflow:hidden;border-radius:10px}
+iframe{display:block;width:100%;height:1250px;border:0;background:#fff}
+.note{font-size:14px;color:#657487}
+footer{background:var(--navy);color:white;text-align:center;padding:22px 12px;margin-top:35px}
+footer p{font-size:14px;margin:4px}
+[dir="ltr"]{text-align:left}
+[dir="ltr"] .hero,[dir="ltr"] header,[dir="ltr"] footer{text-align:center}
+[dir="ltr"] section{direction:ltr}
+[dir="ltr"] .langbar{direction:ltr}
+[dir="ltr"] .actions{direction:ltr}
+@media(max-width:600px){section{margin:14px auto;padding:21px 15px}iframe{height:1350px}.btn{width:100%;text-align:center}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>THAWARTY</h1>
-    <h2>ثورتي</h2>
-    <p>معًا نصنع المستقبل</p>
-    <p>منصة المشاركة المجتمعية</p>
+  <p class="brand">THAWARTY</p>
+  <p class="brand-ar">ثورتي</p>
+  <p class="tagline" data-ar="معًا نصنع المستقبل | منصة المشاركة المجتمعية" data-en="Together, we shape the future | A civic participation platform">معًا نصنع المستقبل | منصة المشاركة المجتمعية</p>
+  <div class="langbar" aria-label="Language">
+    <button type="button" class="active" id="arBtn" onclick="setLanguage('ar')">العربية</button>
+    <button type="button" id="enBtn" onclick="setLanguage('en')">English</button>
+  </div>
 </header>
 
-<section>
-    <h2>ما هي ثورتي؟</h2>
-    <p>
-        ثورتي منصة للمشاركة المجتمعية تهدف إلى تمكين المواطنين
-        من المشاركة في تقديم الأفكار والمقترحات والمساهمة
-        في بناء مستقبل أفضل من خلال التكنولوجيا.
-    </p>
+<main>
+<section class="hero">
+  <span class="pill" data-ar="شارك في القرار" data-en="Take part in decisions">شارك في القرار</span>
+  <h2 data-ar="مرحبًا بك في ثورتي" data-en="Welcome to THAWARTY">مرحبًا بك في ثورتي</h2>
+  <p data-ar="منصة تفتح المجال للمواطنين للمشاركة بالأفكار والمقترحات والعمل التطوعي، والمساهمة في بناء مستقبل أفضل باستخدام التكنولوجيا." data-en="A platform that enables people to contribute ideas, proposals and volunteer efforts, helping build a better future through technology.">منصة تفتح المجال للمواطنين للمشاركة بالأفكار والمقترحات والعمل التطوعي، والمساهمة في بناء مستقبل أفضل باستخدام التكنولوجيا.</p>
+  <div class="actions">
+    <a class="btn" href="#volunteer" data-ar="انضم إلى فريق ثورتي" data-en="Join the THAWARTY team">انضم إلى فريق ثورتي</a>
+  </div>
 </section>
 
 <section>
-    <h2>انضم إلى فريق ثورتي</h2>
-
-    <p>
-        ندعو أصحاب الخبرات والكفاءات والمواهب التقنية
-        للمشاركة في تأسيس وتطوير مشروع ثورتي.
-    </p>
-
-    <p>
-        نرحب بالمبرمجين والمصممين وخبراء التكنولوجيا
-        والإدارة والتسويق والقانون والإعلام.
-    </p>
-
-    <a class="join-button"
-       href="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform"
-       target="_blank"
-       rel="noopener">
-       انضم إلى فريق ثورتي
-    </a>
+  <h2 data-ar="ما هي ثورتي؟" data-en="What is THAWARTY?">ما هي ثورتي؟</h2>
+  <p data-ar="ثورتي مشروع منصة للمشاركة المجتمعية يهدف إلى تمكين المواطنين من عرض الأفكار والمقترحات، ومناقشة القضايا العامة، والمشاركة السلمية والمسؤولة في الشأن العام." data-en="THAWARTY is a civic participation platform designed to help people present ideas and proposals, discuss public issues, and participate peacefully and responsibly in public life.">ثورتي مشروع منصة للمشاركة المجتمعية يهدف إلى تمكين المواطنين من عرض الأفكار والمقترحات، ومناقشة القضايا العامة، والمشاركة السلمية والمسؤولة في الشأن العام.</p>
+  <p data-ar="نعمل على بناء مجتمع رقمي يتيح الحوار المنظم، والشفافية، وتكافؤ فرص المشاركة." data-en="We aim to build a digital community that supports organized dialogue, transparency and equal opportunities to participate.">نعمل على بناء مجتمع رقمي يتيح الحوار المنظم، والشفافية، وتكافؤ فرص المشاركة.</p>
 </section>
 
-<section id="join">
-    <h2>استمارة الانضمام والمشاركة</h2>
-
-    <p>
-        يمكنك ملء الاستمارة التالية لتسجيل رغبتك
-        في المشاركة في مشروع ثورتي.
-    </p>
-
-    <div class="form-container">
-    <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform?embedded=true"
-        width="100%"
-        height="700"
-        frameborder="0">
-        جاري تحميل الاستمارة...
-    </iframe>
-    </div>
-
-    <a class="join-button"
-       href="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform"
-       target="_blank"
-       rel="noopener">
-       فتح الاستمارة مباشرة
-    </a>
+<section id="volunteer">
+  <h2 data-ar="انضم إلى فريق ثورتي" data-en="Join the THAWARTY team">انضم إلى فريق ثورتي</h2>
+  <p data-ar="ندعو أصحاب الخبرات والكفاءات والمواهب للمشاركة في تأسيس وتطوير المشروع." data-en="We invite skilled, experienced and creative people to help establish and develop the project.">ندعو أصحاب الخبرات والكفاءات والمواهب للمشاركة في تأسيس وتطوير المشروع.</p>
+  <p data-ar="نرحب بالمبرمجين والمصممين وخبراء التكنولوجيا والإدارة والتسويق والقانون والإعلام، وبكل من لديه رغبة جادة في التطوع." data-en="We welcome developers, designers, technology specialists, managers, marketers, legal and media professionals, and anyone eager to volunteer.">نرحب بالمبرمجين والمصممين وخبراء التكنولوجيا والإدارة والتسويق والقانون والإعلام، وبكل من لديه رغبة جادة في التطوع.</p>
+  <div class="actions">
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform" target="_blank" rel="noopener" data-ar="فتح استمارة التطوع" data-en="Open volunteer form">فتح استمارة التطوع</a>
+  </div>
 </section>
+
+<section>
+  <h2 data-ar="استمارة الانضمام والمشاركة" data-en="Volunteer and participation form">استمارة الانضمام والمشاركة</h2>
+  <p data-ar="املأ الاستمارة التالية لتسجيل رغبتك في المشاركة. إذا لم تظهر الاستمارة داخل الصفحة، استخدم زر فتح الاستمارة مباشرة." data-en="Complete the form below to register your interest. If the form does not appear here, use the button to open it directly.">املأ الاستمارة التالية لتسجيل رغبتك في المشاركة. إذا لم تظهر الاستمارة داخل الصفحة، استخدم زر فتح الاستمارة مباشرة.</p>
+  <div class="form-wrap">
+    <iframe title="THAWARTY volunteer form" src="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform?embedded=true" loading="lazy">جاري تحميل الاستمارة...</iframe>
+  </div>
+  <p class="note" data-ar="يمكنك أيضًا فتح الاستمارة في نافذة مستقلة." data-en="You can also open the form in a separate window.">يمكنك أيضًا فتح الاستمارة في نافذة مستقلة.</p>
+  <div class="actions">
+    <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLScCLjzHcQ2DZoyFGSB4QGK5_OpuSNyZJe8C3C-WZYHyr_mHWg/viewform" target="_blank" rel="noopener" data-ar="فتح الاستمارة مباشرة" data-en="Open form directly">فتح الاستمارة مباشرة</a>
+  </div>
+</section>
+</main>
 
 <footer>
-    THAWARTY © 2026
-    <p>معًا نصنع المستقبل</p>
+  <strong>THAWARTY | ثورتي © 2026</strong>
+  <p data-ar="معًا نصنع المستقبل — شارك في القرار" data-en="Together, we shape the future — Take part in decisions">معًا نصنع المستقبل — شارك في القرار</p>
 </footer>
 
+<script>
+function setLanguage(lang){
+  const isArabic = lang === 'ar';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+    el.textContent = isArabic ? el.dataset.ar : el.dataset.en;
+  });
+  document.getElementById('arBtn').classList.toggle('active', isArabic);
+  document.getElementById('enBtn').classList.toggle('active', !isArabic);
+}
+</script>
 </body>
 </html>
